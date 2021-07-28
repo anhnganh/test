@@ -116,9 +116,57 @@
 </div>
 </div>
 </div>
+<div class="listTable">
+  <h3 style="padding-left: 600px;">Bảng thống kế số lượng sinh viên </h3>
+  <table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Employee ID</th>  
+        <th>Employee Name</th>  
+        <th>Employee join</th>  
+      
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for employee in employees %}  
+    <tr>  
+        <td>{{ employee.id }}</td>  
+        <td>{{ employee.username }}</td>  
+        <td>{{ employee.date_joined }}</td>  
+        <td>  
+        </td>  
+    </tr>  
+{% endfor %} 
+    </tbody>  
+</table>  
+</div>
+<div>
+  ---------------- 
+  <h3 style="padding-left: 600px;">Bảng thống kế số lượng sinh viên điểm danh </h3>
+   <table  class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">  
+   
+     <tr>
+      <th>Employee ID</th>  
+      <th>Employee ID CheckIn</th>  
+     </tr>
+     </thead>
+     <tbody>
+      {% for nameEmployee in nameEmployee %}  
+      <tr>  
+        <td>{{ nameEmployee.id }}</td>  
+        <td>{{ nameEmployee.username }}</td>  
+       
+        <td>  
+        </td>  
+    </tr>  
+    {% endfor %} 
+     </tbody>
+   </table>
+  <div></div>
+</div>
 
-
-
+ 
   <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

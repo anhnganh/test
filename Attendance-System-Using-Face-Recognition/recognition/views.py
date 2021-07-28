@@ -629,7 +629,7 @@ def mark_your_attendance(request):
 
 			face_aligned = fa.align(frame,gray_frame,face)
 			cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),1)
-					
+			sampleNum = sampleNum+1
 			
 			(pred,prob)=predict(face_aligned,svc)
 			
@@ -673,6 +673,8 @@ def mark_your_attendance(request):
 		#To get out of the loop
 		key=cv2.waitKey(50) & 0xFF
 		if(key==ord("q")):
+			break
+		if(sampleNum>50):
 			break
 	
 	#Stoping the videostream
@@ -739,7 +741,7 @@ def mark_your_attendance_out(request):
 
 			face_aligned = fa.align(frame,gray_frame,face)
 			cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),1)
-					
+			sampleNum = sampleNum+1	
 			
 			(pred,prob)=predict(face_aligned,svc)
 			
@@ -784,7 +786,8 @@ def mark_your_attendance_out(request):
 		key=cv2.waitKey(50) & 0xFF
 		if(key==ord("q")):
 			break
-	
+		if(sampleNum>50):
+			break
 	#Stoping the videostream
 	vs.stop()
 
@@ -869,11 +872,27 @@ def not_authorised(request):
 
 @login_required
 def view_attendance_home(request):
+	employees = User.objects.all()
+	today=datetime.date.today()
+	qs=Present.objects.filter(date=today).filter(present=True)
+	for q in qs:
+		a=q.user_id
+
+	# checkIn = Present.objects.fllter(present=True)
+	nameEmployee = User.objects.filter(id=a)
 	total_num_of_emp=total_number_employees()
 	emp_present_today=employees_present_today()
 	this_week_emp_count_vs_date()
 	last_week_emp_count_vs_date()
-	return render(request,"recognition/view_attendance_home.html", {'total_num_of_emp' : total_num_of_emp, 'emp_present_today': emp_present_today})
+	return render(request,"recognition/view_attendance_home.html", {
+		'employees':employees,
+		'total_num_of_emp' : total_num_of_emp,
+		 'emp_present_today': emp_present_today,
+		 'qs':qs,
+		 'a':a,
+		#  'checkin':checkIn,
+		'nameEmployee':nameEmployee
+		 })
 
 
 @login_required

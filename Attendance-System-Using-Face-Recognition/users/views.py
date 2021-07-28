@@ -43,8 +43,6 @@ def register(request):
 			form.save() ###add user to database
 			messages.success(request, f'Employee registered successfully!')
 			return redirect('dashboard')
-		
-
 
 	else:
 		form=UserCreationForm()
