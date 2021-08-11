@@ -19,7 +19,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{%url 'view-attendance-home' %}">Attendance Dashboard</a>
+  <a class="navbar-brand" href="{%url 'view-attendance-home' %}">Thống kê dữ liệu</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,16 +27,16 @@
     <ul class="navbar-nav">
      
       <li class="nav-item active">
-        <a class="nav-link" href="{%url 'view-attendance-employee' %}">By Employee</a>
+        <a class="nav-link" href="{%url 'view-attendance-employee' %}">Tìm kiếm theo sinh viên</a>
       </li>
         <li class="nav-item active">
-        <a class="nav-link" href="{% url 'view-attendance-date' %}">By Date</a>
+        <a class="nav-link" href="{% url 'view-attendance-date' %}">Thống kê theo ngày</a>
       </li>
 
 
 
          <li class="nav-item active" style="padding-left: 1440px">
-        <a class="nav-link" href="{% url 'dashboard' %}">Back to Admin Panel</a>
+        <a class="nav-link" href="{% url 'dashboard' %}">Back</a>
       </li>
   
     </ul>
@@ -50,11 +50,11 @@
     <div class="card-body">
 
  
-<h2> Today's Statistics </h2>
+<h2>Hôm nay</h2>
  	<div class="row" style="margin-left: 12em">
 <div class="card" style="width: 20em; background-color: #338044; text-align : center; margin-left: 5em; margin-top: 5em; color: white;">
   <div class="card-body">
-    <h5 class="card-title"> <b>Total Number Of Employees</b></h5>
+    <h5 class="card-title"> <b>Tổng số lượng sinh viên</b></h5>
     
     <p class="card-text" style="padding-top: 1em; font-size: 28px;"> <b>{{total_num_of_emp }}</b></p>
    
@@ -62,7 +62,7 @@
 </div>
 <div class="card" style="width: 20em; background-color: #80335b; text-align : center; margin-left: 5em; margin-top: 5em; color: white;">
   <div class="card-body">
-    <h5 class="card-title"> <b> Employees present today</b></h5>
+    <h5 class="card-title"> <b> Sinh viên có mặt hiện tại</b></h5>
     
     <p class="card-text" style="padding-top: 1em; font-size: 28px;"><b> {{emp_present_today }}</b></p>
    
@@ -87,7 +87,7 @@
 
  
 
-  <div class="row" >
+  <!-- <div class="row" >
 <div class="col-md-6">
 <h2> Last Week </h2>
     <div class="card" style="width: 50em;">
@@ -95,13 +95,13 @@
   <div class="card-body">
     <p class="card-text" style="text-align: center;">Number of employees present each day</p>
   </div>
-</div>
+</div> -->
 
 
 
 
 
-</div>
+<!-- </div>
 <div class="col-md-6">
   <h2> This Week </h2>
  <div class="card" style="width: 50em;">
@@ -109,7 +109,7 @@
   <div class="card-body">
     <p class="card-text" style="text-align: center;">Number of employees present each day</p>
   </div>
-</div>
+</div> -->
 
 
 </div>
@@ -121,9 +121,9 @@
   <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
     <tr>  
-        <th>Employee ID</th>  
-        <th>Employee Name</th>  
-        <th>Employee join</th>  
+        <th> ID</th>  
+        <th>Tên</th>  
+        <th>Thời gian đăng kí</th>  
       
     </tr>  
     </thead>  
@@ -141,7 +141,7 @@
 </table>  
 </div>
 <div>
-  ---------------- 
+  <!-- ---------------- 
   <h3 style="padding-left: 600px;">Bảng thống kế số lượng sinh viên điểm danh </h3>
    <table  class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">  
@@ -163,7 +163,7 @@
     {% endfor %} 
      </tbody>
    </table>
-  <div></div>
+  <div></div> -->
 </div>
 
  

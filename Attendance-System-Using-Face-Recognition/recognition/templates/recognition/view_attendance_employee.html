@@ -19,7 +19,7 @@
  <body>
 
  	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{%url 'view-attendance-home' %}">Attendance Dashboard</a>
+  <a class="navbar-brand" href="{%url 'view-attendance-home' %}">Thống kê dữ liệu sinh viên</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,10 +27,10 @@
     <ul class="navbar-nav">
      
       <li class="nav-item active">
-        <a class="nav-link" href="{%url 'view-attendance-employee' %}">By Employee</a>
+        <a class="nav-link" href="{%url 'view-attendance-employee' %}">Tìm kiếm theo tên sinh viên</a>
       </li>
         <li class="nav-item active">
-        <a class="nav-link" href="{% url 'view-attendance-date' %}">By Date</a>
+        <a class="nav-link" href="{% url 'view-attendance-date' %}">Tìm kiếm theo ngày</a>
       </li>
 
 
@@ -50,7 +50,7 @@
  <form method="POST" >
       {% csrf_token %}
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4"> Select Username And Duration </legend>
+        <legend class="border-bottom mb-4"> Lựa chọn theo tên sinh viên và ngày </legend>
         {{form| crispy}}
       </fieldset>
 

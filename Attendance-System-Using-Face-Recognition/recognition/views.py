@@ -683,6 +683,7 @@ def mark_your_attendance(request):
 	# destroying all the windows
 	cv2.destroyAllWindows()
 	update_attendance_in_db_in(present)
+	messages.success(request, f'xin chao...'+person_name+'. bạn đã điểm danh thành công!')
 	return redirect('home')
 
 
@@ -794,6 +795,7 @@ def mark_your_attendance_out(request):
 	# destroying all the windows
 	cv2.destroyAllWindows()
 	update_attendance_in_db_out(present)
+	messages.success(request, f'xin chao...'+person_name+'. bạn đã điểm danh ra thành công!')
 	return redirect('home')
 
 
@@ -874,12 +876,12 @@ def not_authorised(request):
 def view_attendance_home(request):
 	employees = User.objects.all()
 	today=datetime.date.today()
-	qs=Present.objects.filter(date=today).filter(present=True)
-	for q in qs:
-		a=q.user_id
+	# qs=Present.objects.filter(date=today).filter(present=True)
+	# for q in qs:
+	# 	a=q.user_id
 
-	# checkIn = Present.objects.fllter(present=True)
-	nameEmployee = User.objects.filter(id=a)
+	# # checkIn = Present.objects.fllter(present=True)
+	# nameEmployee = User.objects.filter(id=a)
 	total_num_of_emp=total_number_employees()
 	emp_present_today=employees_present_today()
 	this_week_emp_count_vs_date()
@@ -888,10 +890,10 @@ def view_attendance_home(request):
 		'employees':employees,
 		'total_num_of_emp' : total_num_of_emp,
 		 'emp_present_today': emp_present_today,
-		 'qs':qs,
-		 'a':a,
+		#  'qs':qs,
+		#  'a':a,
 		#  'checkin':checkIn,
-		'nameEmployee':nameEmployee
+		# 'nameEmployee':nameEmployee
 		 })
 
 

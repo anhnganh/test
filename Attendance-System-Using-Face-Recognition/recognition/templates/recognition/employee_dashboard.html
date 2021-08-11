@@ -14,7 +14,7 @@
 
    <style>
     body{
-      background: url('{% static "recognition/img/bg_image.png"%}') no-repeat center center fixed;
+      background: url('{% static "recognition/img/background.png"%}') ;
       background-size: cover;
       
     }
@@ -25,11 +25,9 @@
 	
 </head>
 <body>
-   <div class="col-lg-12" style="background: rgba(0,0,0,0.6);margin-top:3em;margin-bottom:5em;padding-top:1em;padding-bottom:3em;color:#fff;border-radius:10px;-webkit-box-shadow: 2px 2px 15px 0px rgba(0, 3, 0, 0.7);
--moz-box-shadow:    2px 2px 15px 0px rgba(0, 3, 0, 0.7);
-box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
+   <div class="col-lg-12" style="margin-top:3em;margin-bottom:5em;padding-top:1em;padding-bottom:3em;color:#000;border-radius:10px;">
     <div class="col-sm-12">
-       <a href="{% url 'logout' %}"><h5 class="text-right"><i class="fa fa-user-circle" aria-hidden="true"></i> Logout</h5></a>
+       <a href="{% url 'logout' %}"><h5 class="text-right"><i class="fa fa-user-circle" aria-hidden="true"></i> Đăng xuất</h5></a>
       <h1 class="text-center section-title" style="margin-bottom:2em">Welcome, {{user.username}}.</h1>
     </div>
      <style>
@@ -88,7 +86,7 @@ box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
           
             
         
-        <div class="col-md-12" style="padding-left: 900px; margin-left: auto; margin-right: auto;">
+        <div class="col-md-12" style="padding-left: 700px; margin-left: auto; margin-right: auto;">
           <a href="{%url 'view-my-attendance-employee-login' %}"><img src="{% static 'recognition/img/reports.png' %}" class="img-responsive" style="width:300px;height:300px"/></a>
        
         </div>
@@ -102,8 +100,8 @@ box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
 
   
 
-        <div class="col md-6" style="padding-left: 945px;">
-             <h4 >View My Attendance</h4>
+        <div class="col md-6" style="padding-left: 780px;">
+             <h4 >Thống kê</h4>
         </div>
      
 
