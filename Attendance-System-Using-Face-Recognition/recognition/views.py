@@ -83,12 +83,7 @@ def create_dataset(username):
 		#This will detect all the images in the current frame, and it will return the coordinates of the faces
 		#Takes in image and some other parameter for accurate result
 		faces = detector(gray_frame,0)
-		#In above 'faces' variable there can be multiple faces so we have to get each and every face and draw a rectangle around it.
-		
-		
-			
-
-
+		#In above 'faces' variable there can be multiple faces so we have to get each and every face and draw a rectangle around it
 		for face in faces:
 			print("inside for loop")
 			(x,y,w,h) = face_utils.rect_to_bb(face)
@@ -104,10 +99,6 @@ def create_dataset(username):
 			if face is None:
 				print("face is none")
 				continue
-
-
-			
-
 			cv2.imwrite(directory+'/'+str(sampleNum)+'.jpg'	, face_aligned)
 			face_aligned = imutils.resize(face_aligned ,width = 400)
 			#cv2.imshow("Image Captured",face_aligned)
@@ -143,11 +134,8 @@ def predict(face_aligned,svc,threshold=0.7):
 		faces_encodings=face_recognition.face_encodings(face_aligned,known_face_locations=x_face_locations)
 		if(len(faces_encodings)==0):
 			return ([-1],[0])
-
 	except:
-
 		return ([-1],[0])
-
 	prob=svc.predict_proba(faces_encodings)
 	result=np.where(prob[0]==np.amax(prob[0]))
 	if(prob[0][result[0]]<=threshold):
@@ -805,11 +793,7 @@ def mark_your_attendance_out(request):
 def train(request):
 	if request.user.username!='admin':
 		return redirect('not-authorised')
-
 	training_dir='face_recognition_data/training_dataset'
-	
-	
-	
 	count=0
 	for person_name in os.listdir(training_dir):
 		curr_directory=os.path.join(training_dir,person_name)
@@ -821,8 +805,6 @@ def train(request):
 	X=[]
 	y=[]
 	i=0
-
-
 	for person_name in os.listdir(training_dir):
 		print(str(person_name))
 		curr_directory=os.path.join(training_dir,person_name)
@@ -833,9 +815,6 @@ def train(request):
 			image=cv2.imread(imagefile)
 			try:
 				X.append((face_recognition.face_encodings(image)[0]).tolist())
-				
-
-				
 				y.append(person_name)
 				i+=1
 			except:
@@ -857,10 +836,7 @@ def train(request):
 	svc_save_path="face_recognition_data/svc.sav"
 	with open(svc_save_path, 'wb') as f:
 		pickle.dump(svc,f)
-
-	
 	vizualize_Data(X1,targets)
-	
 	messages.success(request, f'Training Complete.')
 
 	return render(request,"recognition/train.html")
